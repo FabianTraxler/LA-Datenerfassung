@@ -1,0 +1,15 @@
+Frontend: 
+  -React-App
+  -PWA
+  -Handy + Tablet
+
+Backend:
+  -Python API
+  -SQL Database
+ 
+
+Folder Structure:
+  - Documentation
+  - src
+    - Frontend
+    - Backend
