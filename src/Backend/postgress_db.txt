@@ -1,0 +1,32 @@
+####
+This File describes the Structure of the Postgres Database which is used to store the application data in a reliable way
+####
+
+Database_Name: LA_10K_Data
+Database_Config:
+- User:     LA_API
+- Password: ******
+- Port:     3002
+
+Data Tables:
+
+Groups:
+- name              Primary_Key             "Name of the Group eg. g1, g2, u4, u10""
+- type                                      "Type of the Group eg. decathlon, triathlon, pentathlon"
+- supervisor                                "Name of the supervisor"
+- volunteers                                "Name of the volunteers"
+- password_hash                             "Hash of the Password used to access the group"
+
+Athletes:
+- number            Primary_Key             "Athelete number"
+- group_name        Foreign_Key             "Name of the Group"
+- first_name                                "First Name of Athlete"
+- last_name                                 "Last Name of Athlete"
+- birthday                                  "Birthday of Athlete"
+
+Achievements:
+- athlete_number    Primary_Key/Foreign_Key "Athelete Number"    
+- discipline_name   Primary_Key             "Name of the discipline"
+- points                                    "Points rewarded for that achievement"
+- group_name        Foreign_Key             "Name of the Group the athlete is part of"
+- attempts                                  "Serialized Object / Different for every discipline"
