@@ -1,0 +1,35 @@
+This Document collects ideas of the User - Flow 
+--> meaning what happens when the user opens the app - what different paths can be chosen
+    () --> possible states (after checking statement)
+    [] --> active state
+    + --> User - Action
+    - --> Computer - Action
+
+
++ 1: Opening the App
+- 2: Checking for active Session ( activated | not_activated )
+
+    [not_activated]: 
+    - Show Homescreen {Homescreen.jpg}
+    + 2.1: Enter Group Code
+
+    [activated]: no action
+    
+- 3: Determine Group State ( event_active | before_event | final )
+
+    [before_event]:
+    - determine next event
+    - show before_event screen  {Before_Event.jpg}
+
+    [final]:
+    - show final screen {Final.jpg}
+
+    [event_active]:
+    - determine event
+    - show event_active screen ( ten different screens for different events )
+    + insert athlete performance
+    + Event finished button click
+
+
+
+
