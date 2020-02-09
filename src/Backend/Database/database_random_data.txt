@@ -1,0 +1,19 @@
+INSERT INTO groups VALUES ('g1', 'Decathlon', 'Fabian', 'Fabian', 'asjjksfn');
+
+INSERT INTO athletes VALUES (1, 'g1', 'Fabian', 'Traxler', '22.03.1997');
+INSERT INTO athletes VALUES (2, 'g1', 'Fabian', 'Traxler', '22.03.1997');
+INSERT INTO athletes VALUES (3, 'g1', 'Fabian', 'Traxler', '22.03.1997');
+INSERT INTO athletes VALUES (4, 'g1', 'Fabian', 'Traxler', '22.03.1997');
+INSERT INTO athletes VALUES (5, 'g1', 'Fabian', 'Traxler', '22.03.1997');
+INSERT INTO athletes VALUES (6, 'g1', 'Fabian', 'Traxler', '22.03.1997');
+
+INSERT INTO achievements VALUES (1, '100 Meter', '400', 'g1', '11.91');
+INSERT INTO achievements VALUES (2, '100 Meter', '400', 'g1', '11.91');
+INSERT INTO achievements VALUES (3, '100 Meter', '400', 'g1', '11.91');
+INSERT INTO achievements VALUES (4, '100 Meter', '400', 'g1', '11.91');
+INSERT INTO achievements VALUES (5, '100 Meter', '400', 'g1', '11.91');
+INSERT INTO achievements VALUES (6, '100 Meter', '400', 'g1', '11.91');
+
+INSERT INTO achievements VALUES (1, 'Weitsprung', '312', 'g1', '4.53/4.93/4.99');
+
+

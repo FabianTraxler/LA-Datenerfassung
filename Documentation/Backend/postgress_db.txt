@@ -2,31 +2,44 @@
 This File describes the Structure of the Postgres Database which is used to store the application data in a reliable way
 ####
 
-Database_Name: LA_10K_Data
+Database_Name: la_10k_data
 Database_Config:
-- User:     LA_API
-- Password: ******
+- User:     la_api
+- Password: Jedermannzehnkampf
 - Port:     3002
 
 Data Tables:
 
-Groups:
-- name              Primary_Key             "Name of the Group eg. g1, g2, u4, u10""
-- type                                      "Type of the Group eg. decathlon, triathlon, pentathlon"
+groups:
+- name              Primary_Key             "Name of the Group (eg. g1, g2, u4, u10)""
+- type                                      "Type of the Group (decathlon, triathlon, pentathlon)"
+- discipline_order                          "Order of the Disciplines (Normal, Odd)"
+- state                                     "State the Group is in (before_discipline, discipline_active, final)"
+- next_discipline                           "The next discipline - if discipline active than show active discipline (100-Meter, Weitsprung, Kugel-Stoßen, Hochsprung, 400-Meter, 110-Meter-Hürden, Diskus, Stabhochsprung, Speerwurf, 1500-Meter, 60-Meter, Schlagball)" 
 - supervisor                                "Name of the supervisor"
 - volunteers                                "Name of the volunteers"
 - password_hash                             "Hash of the Password used to access the group"
 
-Athletes:
+athletes:
 - number            Primary_Key             "Athelete number"
 - group_name        Foreign_Key             "Name of the Group"
 - first_name                                "First Name of Athlete"
 - last_name                                 "Last Name of Athlete"
 - birthday                                  "Birthday of Athlete"
+- age_group                                 "Age Group Of the Person (eg. M40, W50, ...)
 
-Achievements:
+registered_athletes:
+- group_name        Foreign_Key             "Name of the Group"
+- first_name        Primary_Key             "First Name of Athlete"
+- last_name         Primary_Key             "Last Name of Athlete"
+- birthday                                  "Birthday of Athlete"
+- age_group                                 "Age Group Of the Person (eg. M40, W50, ...)
+
+
+achievements:
 - athlete_number    Primary_Key/Foreign_Key "Athelete Number"    
 - discipline_name   Primary_Key             "Name of the discipline"
 - points                                    "Points rewarded for that achievement"
 - group_name        Foreign_Key             "Name of the Group the athlete is part of"
 - attempts                                  "Serialized Object / Different for every discipline"
+- best_attempt                              "Serialized Object / Different for every discipline"

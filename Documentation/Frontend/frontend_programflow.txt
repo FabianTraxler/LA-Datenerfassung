@@ -17,16 +17,16 @@ This Document collects ideas of the User - Flow
     
 - 3: Determine Group State ( event_active | before_event | final )
 
-    [before_event]:
-    - determine next event
-    - show before_event screen  {Before_Event.jpg}
+    [before_discipline]:
+    - determine next discipline
+    - show before_discipline screen  {Before_Discipline.jpg}
 
     [final]:
     - show final screen {Final.jpg}
 
-    [event_active]:
-    - determine event
-    - show event_active screen ( ten different screens for different events )
+    [discipline_active]:
+    - determine discipline
+    - show discipline_active screen ( ten different screens for different disciplines )
     + insert athlete performance
     + Event finished button click
 

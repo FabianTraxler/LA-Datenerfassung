@@ -1,0 +1,7 @@
+{
+    "Database": "la_10k_data",
+    "User": "la_api",
+    "Password": "Jedermannzehnkampf",
+    "Host":"localhost",
+    "Port":5432
+}
