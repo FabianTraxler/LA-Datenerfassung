@@ -1,0 +1,41 @@
+#Keyboard{
+    width:100vw;
+    height: 44vh;
+
+    position: absolute;
+    bottom: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: grey;
+}
+
+
+#Keyboard  div div{
+
+    float: left;
+    width: 33.333vw;
+
+    text-align: center;
+
+    height: 11vh;
+    line-height: 11vh;
+
+    color: white;
+    font-size: 150%;
+    font-weight: 1000;
+
+    box-shadow: inset 3px 3px 5px gainsboro;
+}
+
+.clicked{
+    background-color: darkcyan;
+    transition: all 0.1s;
+    box-shadow: inset 0px 0px 0px black;
+
+}
+.delete{
+    background-color: lightcoral;
+}
+.deleted{
+    background-color: red;
+}

@@ -1,0 +1,67 @@
+#menu{
+    font-size: 10vw;
+    font-family: bold;
+
+    font-weight: 1000;
+
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+
+    background-color: steelblue;
+
+    border-radius: 0 0 5px 5px;
+
+    z-index: 9999;
+}
+
+#header{
+    color: white;
+
+    height: 10vh;
+    line-height: 10vh;
+
+    padding: 2px;
+
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0px 0 5px grey;
+}
+
+#group_title{
+    float: left;
+
+    padding-left: 5vw;
+
+    text-align: center;
+}
+
+#toggle_button{
+    width: 8vh;
+    float: right;
+
+    padding:1vh;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: content-box;
+
+    height: 8vh;
+    
+}
+
+#menu_items{
+    width: 100%;
+    overflow: hidden;
+
+    transition: all 0.5s;
+}
+
+.menu_item{
+    height: 22.5vh;
+    border-top: 1px dotted white;
+
+    line-height: 22.5vh;
+    text-align: center;
+
+}

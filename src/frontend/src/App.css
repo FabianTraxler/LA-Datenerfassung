@@ -1,0 +1,9 @@
+html, body {
+  overflow: hidden;
+  
+  min-height: 100vh;
+  min-width: 100vw;
+
+  padding:0;
+  margin:0;
+}

@@ -15,7 +15,6 @@ groups:
 - type                                      "Type of the Group (decathlon, triathlon, pentathlon)"
 - discipline_order                          "Order of the Disciplines (Normal, Odd)"
 - state                                     "State the Group is in (before_discipline, discipline_active, final)"
-- next_discipline                           "The next discipline - if discipline active than show active discipline (100-Meter, Weitsprung, Kugel-Stoßen, Hochsprung, 400-Meter, 110-Meter-Hürden, Diskus, Stabhochsprung, Speerwurf, 1500-Meter, 60-Meter, Schlagball)" 
 - supervisor                                "Name of the supervisor"
 - volunteers                                "Name of the volunteers"
 - password_hash                             "Hash of the Password used to access the group"
@@ -41,5 +40,12 @@ achievements:
 - discipline_name   Primary_Key             "Name of the discipline"
 - points                                    "Points rewarded for that achievement"
 - group_name        Foreign_Key             "Name of the Group the athlete is part of"
+- lauf_bahn                                 "Nummer der Laufes und der Bahn (eg. 1_1, 2_3, 3_1) - wichitg um laufeinteilung ändern zu können"
 - attempts                                  "Serialized Object / Different for every discipline"
 - best_attempt                              "Serialized Object / Different for every discipline"
+
+events:
+- group_name        Primary_Key             "Name of the Group"
+- discipline_name   Primary_Key             "Name of the Discipline
+- starting_time                             "Time the Discipline starts"
+- venue                                     "Location of the Discipline"

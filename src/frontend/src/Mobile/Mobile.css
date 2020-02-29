@@ -1,0 +1,19 @@
+html {
+    height: 100%;
+
+  }
+body{
+    font-size: 5vw;
+    background-color: steelblue;
+    overflow: hidden;
+    min-height: 100%;
+
+}
+
+input[type="text"] {
+    font-size: inherit;
+}
+
+button{
+    font-size: inherit;
+}

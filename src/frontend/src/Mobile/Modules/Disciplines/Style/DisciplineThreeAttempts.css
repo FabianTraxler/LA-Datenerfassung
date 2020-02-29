@@ -1,0 +1,131 @@
+#result_container{
+    width: 100vw;
+    height: 10vh;
+    line-height: 10vh;
+
+    position: absolute;
+    bottom: 45vh;
+
+    text-align: center;
+
+    font-weight: 1000;
+}
+#result{
+    width: 65vw;
+    margin-left: 2vw;
+    float: left;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+
+    background-color: white;
+    line-height: inherit;
+    height: 100%;
+    font-size: 150%;
+
+}
+.save_button{
+    width: 30vw;
+    margin-right: 2vw;
+    float: right;
+    box-shadow: 0 0 5px black;
+    border-radius: 5px;
+
+    background-color: limegreen;
+    line-height: inherit;
+    height: 100%;
+
+    color: white;
+}
+
+.saved{
+    background-color: green;
+}
+
+.discipline_finished{
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top:0;
+
+    height: 0;
+    overflow: hidden;
+
+    z-index: 100;
+    background-color: green;
+}
+
+.discipline_finished_active{
+    height: 100%;
+    transition: 1s;
+}
+
+#athletes_container{
+    width: 100vw;
+    height: 36vh;
+}
+
+#athletes_container > div{
+    width: 100vw;
+
+    text-align: center;
+}
+
+#athletes_container > div > div{
+    float: left;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 0 5px black;
+}
+
+#athlete_header{
+    height: 4vh;
+    line-height: 4vh;
+}
+#athlete_header  div{
+    color: black;
+    height:inherit;
+    line-height: inherit;
+    float: left;
+}
+#next_athlete , #active_athlete{
+    height: 11vh;
+    line-height: 11vh;
+}
+
+#next_athlete div , #active_athlete div{
+    height: inherit;
+    line-height: inherit;
+}
+
+#next_athlete div{
+    opacity: 0.5;
+    background-color: rgb(106, 173, 106);;
+}
+
+#active_athlete div{
+    background-color: rgb(20, 179, 20);;
+}
+
+.nummer_column{
+    width: 10%;
+}
+
+.name_column{
+    width: 60%;
+}
+
+.versuche_column{
+    width: 30%;
+}
+
+#next_athlete .versuche_column, #active_athlete .versuche_column{
+    line-height: 3.5vh;
+    font-size: 90%;
+    text-align: left;
+}
+.inbetween_text{
+    height: 4vh;
+    line-height: 4vh;
+    background-color: gray;
+}
