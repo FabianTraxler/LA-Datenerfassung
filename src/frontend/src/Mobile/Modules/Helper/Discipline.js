@@ -41,7 +41,7 @@ class Athlete{
     }
 
     prepare_attempts_string(){
-        let attempts_string_prepared = ''
+        let attempts_string_prepared = ' '
 
         this.attempts_string.split('/').forEach(attempt => {
             if(attempt){

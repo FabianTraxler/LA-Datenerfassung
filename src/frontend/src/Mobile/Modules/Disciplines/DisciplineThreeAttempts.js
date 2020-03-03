@@ -32,10 +32,10 @@ export default class DisciplineThreeAttempts extends React.Component {
         target.className = 'save_button saved'
             setTimeout(function(){
                 target.className = 'save_button'
-            }, 250)
+            }, 200)
 
         this.state.discipline.save_attempt(this.state.current_result)
-        document.getElementById('versuche_active_athlete').innerHTML += '- ' + this.state.current_result + ' Meter'
+        document.getElementById('versuche_active_athlete').innerHTML += '- ' + this.state.current_result + ' Meter' + "<br />"
         setTimeout(() => {
             this.setState({'current_result': ''})
         }, 500);
@@ -78,7 +78,7 @@ export default class DisciplineThreeAttempts extends React.Component {
                     </div>
                     <div className='inbetween_text'>Am Start ...</div>
                     <div id='active_athlete'>
-                    <div className='nummer_column'>{this.state.discipline.active_athlete.number}</div>
+                        <div className='nummer_column'>{this.state.discipline.active_athlete.number}</div>
                         <div className='name_column'>{this.state.discipline.active_athlete.name}</div>
                         <div id='versuche_active_athlete' className='versuche_column'>{this.state.discipline.active_athlete.prepare_attempts_string()}</div>
                     </div>
