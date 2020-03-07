@@ -96,10 +96,10 @@ def insert_athletes(athlete_handler):
     athlete_handler.create_athlete(2, 'Gruppe 1', 'Fabian', 'Traxler', '22.03.1997', 'man')
     athlete_handler.create_athlete(1, 'Gruppe 1', 'Elke', 'Traxler', '13.05.1969', 'woman')
     athlete_handler.create_athlete(3, 'Gruppe 1', 'Fritz', 'Fischer', '22.03.1980', 'man')
+    for i in range(4,30):
+        gender = 'man' if i % 2 == 0 else 'woman'
+        athlete_handler.create_athlete(i, 'Gruppe 2', 'Test_' + str(i), 'Traxler', '22.03.' + str(1970 - i), 'man')
 
-    athlete_handler.create_athlete(4, 'Gruppe 2', 'Fabian', 'Traxler', '22.03.1997', 'man')
-    athlete_handler.create_athlete(5, 'Gruppe 2', 'Elke', 'Traxler', '13.05.1969', 'woman')
-    athlete_handler.create_athlete(6, 'Gruppe 2', 'Fritz', 'Fischer', '22.03.1980', 'man')
 
 def insert_achievements_100_Meter(achievement_handler, attempts):
     print('Creating 100-Meter Results ...')
@@ -118,13 +118,21 @@ def insert_achievements_Weitsprung(achievement_handler, attempts):
 
     return attempts
 
-def initialize_database(restart_db = False, fill_db = False):
+def delete_all_rows(db_handler):
+    query = 'DELETE FROM achievements; DELETE FROM events; DELETE FROM athletes; DELETE FROM groups;'
+    db_handler.commit_statement(query)
+
+
+def initialize_database(restart_db = False, delete_rows = False, fill_db = False):
 
     db_handler = DB_Handler('backend/config/db_config.json')
 
     if restart_db:
         drop_tables(db_handler)
         create_tables(db_handler)
+    
+    if delete_rows:
+        delete_all_rows(db_handler)
 
     if fill_db:
         group_handler = Group_Handler(db_handler)

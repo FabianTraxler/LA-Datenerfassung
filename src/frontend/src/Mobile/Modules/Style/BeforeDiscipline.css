@@ -8,3 +8,76 @@
     background-color: lightgrey
 }
 
+#beforeDiscipline_container > div{
+    text-align: center;
+
+    font-size: 130%;
+    font-weight: 500;
+}
+
+.fortschritt{
+    margin-top: 1vh;
+    line-height: 1.5em;
+
+    height: 10vh;
+}
+
+.fortschritt_container{
+    border: 2px solid black;
+    width: 90vw;
+    height: 5vh;
+
+    margin: auto;
+
+    border-radius: 5px;
+}
+
+.fortschritt_filler{
+    height: 100%;
+
+    background-color: green;
+}
+
+.container{
+    height: 15vh;
+    width: 100%;
+
+
+    line-height: 5vh;
+}
+
+.inner_container{
+    border: 1px solid black;
+    border-radius: 5px;
+
+    width: 80vw;
+
+    margin: auto;
+    padding: 5px;
+
+}
+
+.next_discipline{
+    background-color: yellow;
+}
+
+.place, .time{
+    background-color: lightyellow;
+}
+
+#start_button{
+    display: block;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    box-shadow: 3px 3px 5px black;
+
+    width: 50vw;
+
+    margin: auto;
+    margin-top: 5vh;
+    padding: 5vw;
+
+    background-color: limegreen;
+}
+

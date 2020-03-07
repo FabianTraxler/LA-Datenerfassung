@@ -1,3 +1,5 @@
+import React from "react";
+
 class Athlete{
     constructor(number, first_name, last_name, attempts_string){
         this.number = number
@@ -40,16 +42,35 @@ class Athlete{
         })
     }
 
-    prepare_attempts_string(){
-        let attempts_string_prepared = ' '
-
-        this.attempts_string.split('/').forEach(attempt => {
-            if(attempt){
-                attempts_string_prepared +=  '- ' + attempt + ' Meter '
+    prepare_attempts_div(){
+        let attempts = []
+        let attempt_classes = []
+        for(let i = 0; i < 3; i++){
+            let attempt = this.attempts_string.split('/')[i]
+            if(attempt === '-'){
+                attempts.push('Fehler')
+                attempt_classes.push('attempt attempt_fail')
+            }else if(attempt){
+                attempts.push(attempt + ' Meter')
+                attempt_classes.push('attempt attempt_success')
+            }else{
+                attempts.push('')
+                attempt_classes.push('attempt no_attempt')
             }
-        });
-
-        return attempts_string_prepared
+        }
+        return (
+            <div id='attempt_container'>
+                <div className={attempt_classes[0]}>
+                    {attempts[0]}
+                </div>
+                <div className={attempt_classes[1]}>
+                    {attempts[1]}
+                </div>
+                <div className={attempt_classes[2]}>
+                    {attempts[2]}
+                </div>
+            </div>
+        )
     }
 }
 
@@ -113,8 +134,9 @@ class Discipline_three_attempts{
         })
         if(this.athletes_in_preperation_this_round.length === 0){
             this.next_round()
+        }else{
+            this.athletes_in_preperation_this_round.reverse()
         }
-        this.athletes_in_preperation_this_round.reverse()
     }
 
     save_attempt(attempt){
@@ -144,7 +166,6 @@ class Discipline_three_attempts{
             this.next_athlete_id = this.athletes_in_preperation_this_round[this.athletes_in_preperation_this_round.length - 1]        
             this.next_athlete = this.athletes[this.next_athlete_id]
         }
-        return this
     }
 
     finish_discipline(refresh){
@@ -194,7 +215,7 @@ class Discipline_one_attempt{
                 this.laufeinteilung.laufe.push(lauf)
                 this.laufeinteilung[lauf] = {}
             }
-            this.laufeinteilung[lauf][bahn] = [athlete[0], athlete[1] + athlete[2], athlete[3]]
+            this.laufeinteilung[lauf][bahn] = [athlete[0], athlete[1] + ' ' + athlete[2], athlete[3]] // [ Nummer , Name , Ergebnis ]
         })
 
         this.name = name

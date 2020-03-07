@@ -60,10 +60,10 @@ def get_state(name):
 
 @group_routes.route('/group/before_discipline_info/<group_name>', methods=['GET'])
 def get_before_discipline_info(group_name):
-    completed_disciplines, next_discipline = group_handler.get_next_discipline(group_name)
+    completed_disciplines_percent, next_discipline = group_handler.get_next_discipline(group_name)
     time, venue = event_handler.get_time_and_venue(group_name, next_discipline)
     response = {
-        'completed_disciplines': completed_disciplines,
+        'completed_disciplines_percent': completed_disciplines_percent,
         'next_discipline': next_discipline, 
         'time': time, 
         'venue': venue

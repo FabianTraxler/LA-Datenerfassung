@@ -47,6 +47,8 @@ export default class Menu extends React.Component {
                 case 'Regeln':
                     break;
                 case 'Zeitplan':
+                    fetch('/database/reset')
+                    this.props.refresh()
                     break;
                 case 'Abmelden':
                     deleteAllCookies()

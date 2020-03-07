@@ -153,8 +153,9 @@ class Group_Handler():
         query = "SELECT type, discipline_order, completed_disciplines FROM groups WHERE name = '{}'".format(group_name)
         row = self.DB_Handler.get_result(query)
         typ, discipline_order, completed_disciplines = row
+        completed_disciplines_percent = (completed_disciplines / len(self.group_disciplines_order[typ + '_'+ discipline_order])) * 100
         next_discipline = self.group_disciplines_order[typ + '_' + discipline_order][completed_disciplines]
-        return completed_disciplines, next_discipline
+        return completed_disciplines_percent, next_discipline
 
     def discpline_completed(self, group_name, discipline_name, attempts):
         """Compare if stored achiements in Database match the sent achiements and then mark the discipline as complete

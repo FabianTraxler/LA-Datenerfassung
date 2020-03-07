@@ -17,6 +17,8 @@ export default class DisciplineThreeAttempts extends React.Component {
         this.saveResult = this.saveResult.bind(this)
         this.delete = this.delete.bind(this)
         this.finish_discipline = this.finish_discipline.bind(this)
+        this.check_state = this.check_state.bind(this)
+        this.saveFailedAttempt = this.saveFailedAttempt.bind(this)
     }
 
     getNumber(number_str){
@@ -33,36 +35,55 @@ export default class DisciplineThreeAttempts extends React.Component {
             setTimeout(function(){
                 target.className = 'save_button'
             }, 200)
-
         this.state.discipline.save_attempt(this.state.current_result)
-        document.getElementById('versuche_active_athlete').innerHTML += '- ' + this.state.current_result + ' Meter' + "<br />"
+        document.getElementById('result').style = 'background-color: lightgreen;'
         setTimeout(() => {
             this.setState({'current_result': ''})
         }, 500);
+    }
+
+    saveFailedAttempt(){
+        this.state.discipline.save_attempt('-')
+        document.getElementById('result').style = 'background-color: lightcoral;'
+        setTimeout(() => {
+            this.setState({'current_result': ''})
+        }, 300);
     }
 
     finish_discipline(){
         this.state.discipline.finish_discipline(this.props.refresh)
     }
 
+    check_state(){
+        if(!this.state.current_result){
+            document.getElementById('result').innerHTML = 'Fehlversuch'
+            document.getElementById('result').style.backgroundColor = 'red'
+            document.getElementById('result').onclick = this.saveFailedAttempt
+        }else{
+            document.getElementById('result').innerHTML = this.state.current_result
+            document.getElementById('result').style.backgroundColor = 'white'
+            document.getElementById('result').onclick = null
+        }
 
-    componentDidUpdate(){
         if(this.state.discipline.state === 'Finished'){
             document.getElementById('discipline_finished').classList.add('discipline_finished_active')
         }
     }
+
+
+    componentDidUpdate(){
+        this.check_state()
+    }
     componentDidMount(){
-        if(this.state.discipline.state === 'Finished'){
-            document.getElementById('discipline_finished').classList.add('discipline_finished_active')
-        }
+        this.check_state()
     }
 
     render(){
         return(
             <div>
                 <div id='discipline_finished' className='discipline_finished'>
-                    Discipline abgeschlossen
-                    <div onClick={this.finish_discipline}> Abschließen </div>
+                    Bewerb <br></br> abgeschlossen
+                    <div onClick={this.finish_discipline} > Ergebnis speichern </div>
                 </div>
                 <div id='athletes_container'>
                     <div id='athlete_header'>
@@ -74,13 +95,13 @@ export default class DisciplineThreeAttempts extends React.Component {
                     <div id='next_athlete'>
                         <div className='nummer_column'>{this.state.discipline.next_athlete.number}</div>
                         <div className='name_column'>{this.state.discipline.next_athlete.name}</div>
-                        <div className='versuche_column'>{this.state.discipline.next_athlete.prepare_attempts_string()}</div>
+                        <div className='versuche_column'>{this.state.discipline.next_athlete.prepare_attempts_div()}</div>
                     </div>
                     <div className='inbetween_text'>Am Start ...</div>
                     <div id='active_athlete'>
                         <div className='nummer_column'>{this.state.discipline.active_athlete.number}</div>
                         <div className='name_column'>{this.state.discipline.active_athlete.name}</div>
-                        <div id='versuche_active_athlete' className='versuche_column'>{this.state.discipline.active_athlete.prepare_attempts_string()}</div>
+                        <div id='versuche_active_athlete' className='versuche_column' >{this.state.discipline.active_athlete.prepare_attempts_div()}</div>
                     </div>
                 </div>
                 <div id='result_container'>

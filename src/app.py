@@ -27,8 +27,12 @@ app.register_blueprint(athlete_routes)
 app.register_blueprint(achievement_routes)
 #app.register_blueprint(mobile_routes)
 
+@app.route('/database/reset', methods=['GET'])
+def reset_db():
+    initialize_database(delete_rows = True, fill_db=True)
+    return 'OK'
 
 
 if __name__ == '__main__':
     initialize_database(restart_db = True, fill_db=True)
-    app.run()
+    app.run(port=3001)
