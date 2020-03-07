@@ -6,4 +6,3 @@ pyvenv.cfg
 share
 **/.DS_Store
 .vscode/
-.env/
