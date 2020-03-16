@@ -223,6 +223,33 @@ class Discipline_one_attempt{
         this.group_name = group_name
     }
 
+    finish_discipline(refresh){
+        let formData = new FormData()
+        formData.append('group_name', this.group_name)
+        formData.append('discipline_name', this.name)
+
+        fetch('/group/discipline_completed' , {
+            method: 'POST',
+            body:formData
+        })
+        .then(res => res.json())
+        .then((data) => {
+                if(data.response === 'Failed'){
+                    alert('Fehler beim Speichern')
+                }else{
+                    refresh()
+                }
+        })
+    }
+
+
+}
+
+
+class Discipline_three_plus_attempts{
+    constructor(startreihenfolge_array, name, group_name){
+
+    }
 }
 
 export default function createDiscipline(discipline_typ, startreihenfolge_array, name, group_name){
@@ -230,5 +257,7 @@ export default function createDiscipline(discipline_typ, startreihenfolge_array,
         return new Discipline_one_attempt(startreihenfolge_array, name, group_name)
     }else if (discipline_typ === 'three_attempts'){
         return new Discipline_three_attempts(startreihenfolge_array, name, group_name)
+    }else if (discipline_typ === 'three_plus_attempts'){
+        return new Discipline_three_plus_attempts(startreihenfolge_array, name, group_name)
     }
 }

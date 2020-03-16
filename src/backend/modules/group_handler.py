@@ -192,6 +192,25 @@ class Group_Handler():
             print("stored and transmitted attempts don't match")
             return 0
 
+    def all_runs_started(self, group_name, discipline_name):
+        """Mark the discipline as complete
+        ...
+         Parameters
+        ----------
+        group_name: str
+            Name of the Group
+        
+        discipline_name: str
+            Name of the Discipline
+        """
+        query = "UPDATE groups SET completed_disciplines = completed_disciplines + 1 WHERE name = '{}';".format(group_name)
+        state = 'before_discipline'
+        if self.DB_Handler.commit_statement(query) and self.set_state(group_name, state):
+            return 1
+        else:
+            print('Not Stored')
+            return 0    
+
     def get_state(self, group_name):
         """Return the current state of the group"""
 

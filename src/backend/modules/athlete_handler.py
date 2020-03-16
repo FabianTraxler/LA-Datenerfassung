@@ -20,7 +20,7 @@ class Athlete_Handler():
         self.group_disciplines_order = {
             "Decathlon_Normal": ['100-Meter', 'Weitsprung', 'Kugel-Stoßen', 'Hochsprung', '400-Meter', '110-Meter-Hürden', 'Diskus', 'Stabhochsprung', 'Speerwurf', '1500-Meter'],
             "Decathlon_Odd": ['100-Meter', 'Diskus', 'Stabhochsprung', 'Speerwurf',  '400-Meter', '110-Meter-Hürden', 'Weitsprung', 'Kugel-Stoßen', 'Hochsprung', '1500-Meter'],
-            "Pethathlon_Normal": ['100-Meter', 'Weitsprung', 'Hochsprung', 'Speerwurf', '1200-Meter'],
+            "Pentathlon_Normal": ['100-Meter', 'Weitsprung', 'Hochsprung', 'Speerwurf', '1200-Meter'],
             "Triathlon_Normal": ['60-Meter', 'Weitsprung', 'Schlagball']
         }
     
@@ -90,11 +90,12 @@ class Athlete_Handler():
             Gender as string (woman, man)
         """
         age_group = self._get_age_group(birthday, gender)
+        if not group_name:
+            group_name = age_group
+        
         query = "SELECT type, discipline_order FROM groups WHERE name = '{}'".format(group_name)
         row = self.DB_Handler.get_result(query)
         disciplines = self.group_disciplines_order[row[0] + '_' + row[1]]
-        if not group_name:
-            group_name = age_group
 
         lauf_bahn_calculator = Lauf_Bahn_Calculator(self.DB_Handler)
         query = "INSERT INTO athletes VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}');".format(athlete_number, group_name, first_name, last_name, birthday, age_group, gender)

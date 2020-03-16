@@ -96,9 +96,14 @@ def get_discipline_active_info(group_name):
 @group_routes.route('/group/discipline_completed', methods=['POST'])
 def discipline_completed():
     args = request.form
-    attempts = args['attempts'].split(',')
-    if group_handler.discpline_completed(args['group_name'], args['discipline_name'], attempts):
-        return {"response":'Success', "status":200}
-    else:
-        return {"response":'Failed', "status":400}
+    if 'Meter' in args['discipline_name']:
+        if group_handler.all_runs_started(args['group_name'], args['discipline_name']):
+            return {"response":'Success', "status":200}
+        else:
+            return {"response":'Failed', "status":400}
+    else:    
+        if group_handler.discpline_completed(args['group_name'], args['discipline_name'], args['attempts'].split(',')):
+            return {"response":'Success', "status":200}
+        else:
+            return {"response":'Failed', "status":400}
 

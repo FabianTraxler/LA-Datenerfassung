@@ -9,6 +9,7 @@ export default class DisciplineOneAttempt extends React.Component {
                 discipline: this.props.discipline
         };
         this.fillLaufContainer = this.fillLaufContainer.bind(this)
+        this.finish_discipline = this.finish_discipline.bind(this)
     }
 
     fillLaufContainer(){
